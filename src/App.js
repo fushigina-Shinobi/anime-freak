@@ -1,9 +1,14 @@
 import "./index.css";
+import MovieList from "./MovieList";
+import Navbarr from "./Navbar";
+import Search from "./Search";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="App-header">Hello World</h1>
+    <div className="grid">
+      <Navbarr />
+      <Search />
+      <MovieList />
     </div>
   );
 }

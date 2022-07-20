@@ -1,0 +1,45 @@
+<div className="mt-5 grid text-center">
+  <Container>
+    <Row md={4}>
+      {movies.map((el) => {
+        return (
+          <Col md={4}>
+            <Card
+              style={{ width: "18rem" }}
+              className="box mb-5"
+              key={el.id}
+            >
+              <Card.Img variant="top" src="https://picsum.photos/150/" />
+              <Card.Body>
+                <Card.Title>{el.title}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                  {el.original_title_romanised}
+                </Card.Subtitle>
+                <Card.Text>{el.description}</Card.Text>
+                <Button variant="primary">Details</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        );
+      })}
+    </Row>
+  </Container>
+</div>
+
+
+    <div className="card-container">
+        {movies.map((el) => {
+          return (
+            <section key={el.id}>
+              <article>
+                <h3>English Title : {el.title}</h3>
+                <h2>Original Title : {el.original_title_romanised}</h2>
+                <h4>Director : {el.director}</h4>
+                <p>Plot : {el.description}</p>
+                <p>Year : {el.release_date}</p>
+                <p>Run Time : {el.running_time}</p>
+              </article>
+            </section>
+          );
+        })}
+      </div>
