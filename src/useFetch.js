@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const useFetch = (url) => {
+const Fetch = (url) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -22,7 +21,7 @@ const useFetch = (url) => {
     };
     fetchData();
   }, [url]);
-  return { movies, loading, error };
+  return { movies, loading, error, setLoading, setError };
 };
 
-export default useFetch;
+export default Fetch;

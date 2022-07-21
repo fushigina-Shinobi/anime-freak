@@ -1,5 +1,5 @@
 import "./index.css";
-import MovieList from "./MovieList";
+import AnimeList from "./AnimeList";
 import Navbarr from "./Navbar";
 import Search from "./Search";
 
@@ -8,7 +8,7 @@ function App() {
     <div className="grid">
       <Navbarr />
       <Search />
-      <MovieList />
+      <AnimeList />
     </div>
   );
 }
