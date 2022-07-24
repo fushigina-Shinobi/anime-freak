@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 
 const Navbarr = () => {
   return (
-    <Navbar bg="light" expand="lg" className="p-4">
+    <Navbar bg="light" expand="lg" className="p-4 mx-auto">
       <Container className="justify-content-space-between">
         <Navbar.Brand href="#">Anime Freak</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
-            className="me-auto my-2 my-lg-0"
+            className="mx-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
