@@ -31,22 +31,23 @@ const AnimeList = () => {
   if (loading) return <h2>LOADING...</h2>;
   if (error) return <h3>ERROR..</h3>;
   return (
-    <Card style={{ width: "15rem" }}>
-      <Container className="grid">
-        <Row className="justify-content-md-center">
+    <Container>
+      <Card style={{ border: "none" }}>
+        <Row className="gx-4">
+          <h1 className="text-center">Popular Anime</h1>
           {anime.map((e) => {
             return (
-              <Col md="auto">
-                <div key={e.mal_id}>
-                  <h4>POPULAR ANIME</h4>
+              <Col className="col-3 gy-2" key={e.mal_id}>
+                <div>
                   <Card.Img
                     variant="top"
                     src={e.images.jpg.image_url}
                     alt={e.title}
+                    style={{ height: "25rem" }}
                   />
                   <Card.Body>
-                    <Card.Title>{e.title}</Card.Title>
-                    <Card.Text>{e.synopsis}</Card.Text>
+                    <Card.Title>{e.title.substring(0, 20)}...</Card.Title>
+                    <Card.Text>{e.synopsis.substring(0, 100)}...</Card.Text>
                     <Button variant="primary">Details</Button>
                   </Card.Body>
                 </div>
@@ -54,8 +55,8 @@ const AnimeList = () => {
             );
           })}
         </Row>
-      </Container>
-    </Card>
+      </Card>
+    </Container>
   );
 };
 

@@ -1,15 +1,16 @@
 import "./index.css";
-import AnimeList from "./AnimeList";
-import Navbarr from "./Navbar";
-import Search from "./Search";
+import Home from "./Home";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Popular from "./Popular";
 
 function App() {
   return (
-    <div className="grid">
-      <Navbarr />
-      <Search />
-      <AnimeList />
-    </div>
+    <Router>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="popular" element={<Popular />} />
+      </Routes>
+    </Router>
   );
 }
 
