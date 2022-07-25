@@ -1,17 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Fetch from "./useFetch";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
 function Search() {
-  const [text, setText] = useState("naruto");
+  const [text, setText] = useState("");
   const [error, setError] = useState("");
   const [item, setItem] = useState([]);
-  const { setLoading } = Fetch();
   const searchAnime = async () => {
     try {
       const res = await fetch(`https://api.jikan.moe/v4/anime?q=${text}`);
@@ -20,7 +18,6 @@ function Search() {
       if (data) {
         setItem(data);
       }
-      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -35,6 +32,7 @@ function Search() {
       setError("Search box can't be empty!!");
     }
   }
+
   // if (!loading) return <h2>LOADING...</h2>;
   // if (error) return <h3>ERROR..</h3>;
   return (
@@ -53,23 +51,24 @@ function Search() {
         </Button>
       </Form>
       {error && <h3>{error}</h3>}
-      <Container>
+      {text && <p>We are Under Development. Some Features May Not Work</p>}
+      <Container className="mt-5">
         <Card style={{ border: "none" }}>
           <Row className="gx-4">
-            {/*<h1 className="text-center">Popular Anime</h1> */}
-            {item.map((e, i) => {
+            {item.map((el, i) => {
               return (
-                <Col className="col-3 gy-2" key={i}>
+                <Col className="col-3 gy-2 shadow-sm p-4 mb-4 bg-white" key={i}>
                   <div>
                     <Card.Img
                       variant="top"
-                      src={e.images.jpg.image_url}
-                      alt={e.title}
+                      src={el.images.jpg.image_url}
+                      alt={el.title}
                       style={{ height: "25rem" }}
                     />
                     <Card.Body>
-                      <Card.Title>{e.title.substring(0, 20)}...</Card.Title>
-                      <Card.Text>{e.synopsis.substring(0, 100)}...</Card.Text>
+                      <Card.Title>{el.title.substring(0, 20)}...</Card.Title>
+                      <Card.Subtitle>Episodes - {el.episodes}</Card.Subtitle>
+                      <Card.Text>{el.synopsis?.substring(0, 100)}</Card.Text>
                       <Button variant="primary">Details</Button>
                     </Card.Body>
                   </div>
