@@ -68,7 +68,7 @@ function Search() {
                     <Card.Body>
                       <Card.Title>{el.title.substring(0, 20)}...</Card.Title>
                       <Card.Subtitle>Episodes - {el.episodes}</Card.Subtitle>
-                      <Card.Text>{el.synopsis?.substring(0, 100)}</Card.Text>
+                      <Card.Text>{el.synopsis?.substring(0, 100)}...</Card.Text>
                       <Button variant="primary">Details</Button>
                     </Card.Body>
                   </div>
