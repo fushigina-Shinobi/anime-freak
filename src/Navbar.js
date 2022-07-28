@@ -6,12 +6,16 @@ import { Link } from "react-router-dom";
 
 const Navbarr = () => {
   return (
-    <Navbar bg="light" expand="lg" className="p-4">
+    <Navbar expand="lg" className="p-4" style={{ backgroundColor: "#72ffff" }}>
       <Container>
-        <Navbar.Brand href="#">Anime Freak</Navbar.Brand>
+        <Navbar.Brand href="/">Anime Freak</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="ms-auto" style={{ maxHeight: "100px" }} navbarScroll>
+          <Nav
+            className="ms-auto active"
+            style={{ maxHeight: "100px" }}
+            navbarScroll
+          >
             <Link to="/" className="list-group-item me-4">
               Home
             </Link>

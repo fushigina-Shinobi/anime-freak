@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -54,10 +54,13 @@ function Search() {
       {text && <p>We are Under Development. Some Features May Not Work</p>}
       <Container className="mt-5">
         <Card style={{ border: "none" }}>
-          <Row className="gx-4">
+          <Row className="gx-4 justify-content-center gap-3">
             {item.map((el, i) => {
               return (
-                <Col className="col-3 gy-2 shadow-sm p-4 mb-4 bg-white" key={i}>
+                <Col
+                  className="gy-2 border border-2 rounded col-9 col-sm-6 col-md-5 col-lg-4 col-xl-3 shadow-sm p-4 mb-4 bg-white"
+                  key={i}
+                >
                   <div>
                     <Card.Img
                       variant="top"
@@ -67,8 +70,12 @@ function Search() {
                     />
                     <Card.Body>
                       <Card.Title>{el.title.substring(0, 20)}...</Card.Title>
-                      <Card.Subtitle>Episodes - {el.episodes}</Card.Subtitle>
-                      <Card.Text>{el.synopsis?.substring(0, 100)}...</Card.Text>
+                      <Card.Subtitle className="mb-3">
+                        Episodes - {el.episodes}
+                      </Card.Subtitle>
+                      <Card.Text style={{ height: "7rem" }}>
+                        {el.synopsis?.substring(0, 100)}...
+                      </Card.Text>
                       <Button variant="primary">Details</Button>
                     </Card.Body>
                   </div>

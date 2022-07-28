@@ -28,26 +28,34 @@ const AnimeList = () => {
     };
     fetchData();
   }, []);
-  if (loading) return <h2>LOADING...</h2>;
+  if (loading) return <h2 className="text-center">LOADING...</h2>;
   if (error) return <h3>ERROR..</h3>;
   return (
     <Container>
       <Card style={{ border: "none" }}>
-        <Row className="gx-4">
-          <h1 className="text-center">Popular Anime</h1>
+        <Row className="gx-4 justify-content-center gap-3">
+          <h1 className="text-center mt-4">Popular Anime</h1>
           {anime.map((e) => {
             return (
-              <Col className="col-3 gy-2" key={e.mal_id}>
+              <Col
+                className="gy-2 border border-2 rounded col-9 col-sm-6 col-md-5 col-lg-4 col-xl-3 shadow-sm p-4 mb-4 bg-white"
+                key={e.mal_id}
+              >
                 <div>
                   <Card.Img
                     variant="top"
                     src={e.images.jpg.image_url}
                     alt={e.title}
                     style={{ height: "25rem" }}
+                    className="img-fluid img-responsive"
                   />
                   <Card.Body>
-                    <Card.Title>{e.title.substring(0, 20)}...</Card.Title>
-                    <Card.Text>{e.synopsis.substring(0, 100)}...</Card.Text>
+                    <Card.Title className="mb-3">
+                      {e.title.substring(0, 20)}...
+                    </Card.Title>
+                    <Card.Text style={{ height: "7rem" }}>
+                      {e.synopsis.substring(0, 100)}...
+                    </Card.Text>
                     <Button variant="primary">Details</Button>
                   </Card.Body>
                 </div>
