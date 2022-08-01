@@ -52,13 +52,13 @@ function Search() {
       </Form>
       {error && <h3>{error}</h3>}
       {text && <p>We are Under Development. Some Features May Not Work</p>}
-      <Container className="mt-5">
+      <Container className="mt-5 g-0">
         <Card style={{ border: "none" }}>
-          <Row className="gx-4 justify-content-center gap-3">
+          <Row className="g-0 justify-content-center gap-3">
             {item.map((el, i) => {
               return (
                 <Col
-                  className="gy-2 border border-2 rounded col-9 col-sm-6 col-md-5 col-lg-4 col-xl-3 shadow-sm p-4 mb-4 bg-white"
+                  className="gy-2 border border-2 rounded col-9 col-sm-6 col-md-5 col-lg-4 col-xl-3 shadow-sm mb-4 bg-white"
                   key={i}
                 >
                   <div>
@@ -73,7 +73,7 @@ function Search() {
                       <Card.Subtitle className="mb-3">
                         Episodes - {el.episodes}
                       </Card.Subtitle>
-                      <Card.Text style={{ height: "7rem" }}>
+                      <Card.Text style={{ height: "7rem", objectFit: "cover" }}>
                         {el.synopsis?.substring(0, 100)}...
                       </Card.Text>
                       <Button variant="primary">Details</Button>
